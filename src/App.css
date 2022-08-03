@@ -1,38 +1,94 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #ebebeb;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a {
+  color: black;
+  font-size: 18px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#nav {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+}
+.wrapper {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 700px;
+  border: 3px solid black;
+  border-right-width: 0;
+  border-radius: 60px;
+  padding: 0 0 0 2rem;
+  height: 80px;
 }
-
-.App-link {
-  color: #61dafb;
+.menu {
+  height: inherit;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.links {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  height: inherit;
+}
+.links li {
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.links li a {
+  text-decoration: none;
+  transition: 0.5s;
+  font-weight: bold;
+}
+.links li a:hover {
+  color: #0e5ba8;
+}
+.links li:last-of-type {
+  border: 3px solid black;
+  height: 80px;
+  width: 80px;
+  border-radius: 60px;
+  transition: 0.5s;
+}
+.extended {
+  width: 380px !important;
+  transition: 0.5s;
+  border: 1px solid black;
+  border-radius: 60px !important;
+  padding: 0 20px;
+}
+.input-field {
+  width: 0;
+  transition: 0.5s;
+}
+.input-field.active {
+  width: 300px;
+  transition: 0.5s;
+}
+#search_input {
+  width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  height: 50px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.active #search_input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  height: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  width: auto;
 }
