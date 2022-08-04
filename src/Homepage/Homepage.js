@@ -1,8 +1,10 @@
 import Nav from './Nav/Nav';
+import Main from './main/Main';
 function Homepage() {
   return (
-    <div id="home">
+    <div id='home'>
       <Nav />
+      <Main />
     </div>
   );
 }
