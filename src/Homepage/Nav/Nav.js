@@ -1,14 +1,14 @@
 import logo from '../img/logo.png';
 import Search from '../img/bx_search.png';
 import { Link } from 'react-router-dom';
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 function Nav() {
-  const [isActive, setActive] = useState('false');
+  const [isActive, setActive] = useState(false);
 
-  function handleToggle() {
+  const handleToggle = () => {
     setActive(!isActive);
-  }
+  };
   const listAnimation = {
     hidden: { opacity: 0 },
     show: {
@@ -41,43 +41,43 @@ function Nav() {
   };
   return (
     <>
-      <section id="nav">
-        <div className="wrapper">
+      <section id='nav'>
+        <div className='wrapper'>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="logo"
+            className='logo'
           >
-            <img src={logo} alt="logo" />
+            <img src={logo} alt='logo' />
           </motion.div>
-          <div className="menu">
+          <div className='menu'>
             <motion.ul
               variants={listAnimation}
-              initial="hidden"
-              animate="show"
-              className="links"
+              initial='hidden'
+              animate='show'
+              className='links'
             >
               <motion.li variants={item}>
-                <Link to="/blog">Blog</Link>
+                <Link to='/blog'>Blog</Link>
               </motion.li>
               <motion.li variants={item}>
-                <Link to="/login">Login</Link>
+                <Link to='/login'>Login</Link>
               </motion.li>
               <motion.li variants={item}>
-                <Link to="/signup">Signup</Link>
+                <Link to='/signup'>Signup</Link>
               </motion.li>
               <motion.li
                 className={isActive ? 'extended' : ''}
                 variants={lastItem}
               >
                 <div className={`input-field ${isActive ? 'active' : ''}`}>
-                  <input type="text" id="search_input"></input>
+                  <input type='text' id='search_input'></input>
                 </div>
                 <img
                   src={Search}
-                  alt="search"
-                  className="search_img"
+                  alt='search'
+                  className='search_img'
                   onClick={handleToggle}
                 />
               </motion.li>

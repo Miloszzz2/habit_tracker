@@ -64,7 +64,6 @@ a {
   transition: 0.5s;
   border: 1px solid black;
   border-radius: 60px !important;
-  padding: 0 20px;
 }
 .input-field {
   width: 0;
@@ -91,4 +90,7 @@ a {
   font-size: 18px;
   font-weight: bold;
   width: auto;
+}
+.search_img {
+  cursor: pointer;
 }
