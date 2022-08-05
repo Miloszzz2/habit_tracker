@@ -41,17 +41,6 @@ function Nav() {
       },
     },
   };
-  const draw = {
-    hidden: { pathLength: 0, opacity: 0 },
-    visible: {
-      pathLength: 1,
-      opacity: 1,
-      transition: {
-        pathLength: { type: 'tween', duration: 3.5, bounce: 0 },
-        opacity: { duration: 1 },
-      },
-    },
-  };
   return (
     <>
       <section id='nav'>
@@ -102,30 +91,6 @@ function Nav() {
             </motion.ul>
           </div>
         </motion.div>
-
-        <motion.svg
-          viewBox='0 0 3530 1358'
-          fill='none'
-          xmlns='http://www.w3.org/2000/svg'
-          className='vector_line'
-          initial='hidden'
-          animate='visible'
-        >
-          <motion.path
-            d='M2.33478 555.436C-18.479 295.03 935.431 43.2328 1692.17 13.249C2682.73 -25.9997 3159.8 11.573 3105.33 555.436C3004.33 1563.91 2066.5 1320.75 2125.5 1096.25M2125.5'
-            stroke='black'
-            strokeWidth='3'
-            variants={draw}
-          />
-
-          <motion.path
-            d='M2125.5 1096.25H2141.33C2149.83 1096.25 2141.1 1093.86 2125.5 1081.46C2110.3 1093.46 2102.83 1098.95 2108.33 1097.45L2125.5 1096.25Z'
-            fill='black'
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 1 }}
-            transition={{ delay: 3.6 }}
-          />
-        </motion.svg>
       </section>
     </>
   );

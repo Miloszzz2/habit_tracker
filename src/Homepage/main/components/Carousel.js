@@ -7,10 +7,11 @@ import {
   ButtonNext,
 } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import Play from '../img/play.png';
-import Pause from '../img/pause.png';
-import Back from '../img/back.png';
-import Next from '../img/next.png';
+import Play from '../../img/play.png';
+import Pause from '../../img/pause.png';
+import Back from '../../img/back.png';
+import Next from '../../img/next.png';
+import { motion } from 'framer-motion';
 const CardCarousel = () => (
   <CarouselProvider
     naturalSlideWidth={1}
@@ -18,7 +19,7 @@ const CardCarousel = () => (
     totalSlides={3}
     style={{ width: '450px' }}
     isPlaying={true}
-    interval={3000}
+    interval={5000}
     infinite={true}
     lockOnWindowScroll={true}
     touchEnabled={false}
@@ -36,22 +37,38 @@ const CardCarousel = () => (
     </Slider>
     <div className='buttons'>
       <ButtonBack>
-        <img src={Back} alt='backbutton' />
+        <motion.img
+          src={Back}
+          alt='backbutton'
+          whileHover={{ opacity: 0.85 }}
+          transition={{ type: 'spring' }}
+        />
       </ButtonBack>
       <ButtonPlay
         childrenPaused={
-          <div>
-            <img src={Play} alt='' />
-          </div>
+          <motion.img
+            src={Play}
+            alt='playbutton'
+            whileHover={{ opacity: 0.8 }}
+            transition={{ type: 'spring' }}
+          />
         }
         childrenPlaying={
-          <div>
-            <img src={Pause} alt='' />
-          </div>
+          <motion.img
+            src={Pause}
+            alt='pausebutton'
+            whileHover={{ opacity: 0.8 }}
+            transition={{ type: 'spring' }}
+          />
         }
       ></ButtonPlay>
       <ButtonNext style={{ padding: '20px' }}>
-        <img src={Next} alt='Next' />
+        <motion.img
+          whileHover={{ opacity: 0.8 }}
+          transition={{ type: 'spring' }}
+          src={Next}
+          alt='nextbutton'
+        />
       </ButtonNext>
     </div>
   </CarouselProvider>
