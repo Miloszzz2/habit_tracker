@@ -16,17 +16,18 @@ function Nav() {
       opacity: 1,
       transition: {
         staggerChildren: 0.4,
-        delay: 0.6,
+        delayChildren: 0.6,
+        delay: 0.3,
       },
     },
   };
   const item = {
-    hidden: { y: 30, opacity: 0 },
+    hidden: { y: 20, opacity: 0 },
     show: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.8,
+        duration: 0.4,
       },
     },
   };
@@ -46,7 +47,7 @@ function Nav() {
       pathLength: 1,
       opacity: 1,
       transition: {
-        pathLength: { type: 'tween', duration: 4.5, bounce: 0 },
+        pathLength: { type: 'tween', duration: 3.5, bounce: 0 },
         opacity: { duration: 1 },
       },
     },
@@ -56,7 +57,7 @@ function Nav() {
       <section id='nav'>
         <motion.div
           initial={{ y: -30, opacity: 0 }}
-          animate={{ y: 30, opacity: 1 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ type: 'spring', bounce: 0.25 }}
           className='wrapper'
         >
@@ -122,7 +123,7 @@ function Nav() {
             fill='black'
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ pathLength: 1, opacity: 1 }}
-            transition={{ delay: 4.5 }}
+            transition={{ delay: 3.6 }}
           />
         </motion.svg>
       </section>
