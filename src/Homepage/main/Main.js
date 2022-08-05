@@ -2,6 +2,7 @@ import Card from './Card';
 import Category from '../img/category.png';
 import Eye from '../img/solid_eye.png';
 import BadHabit from '../img/dangerous-rounded.png';
+import Carousel from './Carousel';
 import { motion } from 'framer-motion';
 function Main() {
   const textAnimation = {
@@ -15,6 +16,17 @@ function Main() {
       transition: { delay: 0.4, duration: 1 },
     },
   };
+  const carouselAnimation = {
+    hidden: {
+      y: 50,
+      opacity: 0,
+    },
+    show: {
+      y: 0,
+      opacity: 1,
+      transition: { delay: 0.4, duration: 1.2 },
+    },
+  };
   const Cards = {
     show: {
       transition: {
@@ -26,7 +38,16 @@ function Main() {
   return (
     <>
       <section id='main'>
-        <div className='left'></div>
+        <div className='left'>
+          <motion.div
+            variants={carouselAnimation}
+            initial='hidden'
+            animate='show'
+            className='carousel_wrapper'
+          >
+            <Carousel />
+          </motion.div>
+        </div>
         <div className='right'>
           <motion.h2 variants={textAnimation} initial='hidden' animate='show'>
             Change you habits &
