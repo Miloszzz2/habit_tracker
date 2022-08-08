@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import Card from './Card';
-import Category from '../../img/category.png';
-import Eye from '../../img/solid_eye.png';
-import BadHabit from '../../img/dangerous-rounded.png';
+import Category from './img/category.png';
+import Eye from './img/solid_eye.png';
+import BadHabit from './img/dangerous-rounded.png';
 function RightSection() {
   const textAnimation = {
     hidden: {

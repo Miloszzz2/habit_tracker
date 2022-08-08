@@ -1,7 +1,7 @@
 import Carousel from './Carousel';
 import { motion } from 'framer-motion';
-import Star1 from '../../img/Star 1.png';
-import Star2 from '../../img/Star 2.png';
+import Star1 from './img/Star 1.png';
+import Star2 from './img/Star 2.png';
 function LeftSection() {
   const carouselAnimation = {
     hidden: {

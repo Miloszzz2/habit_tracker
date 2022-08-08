@@ -7,10 +7,10 @@ import {
   ButtonNext,
 } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import Play from '../../img/play.png';
-import Pause from '../../img/pause.png';
-import Back from '../../img/back.png';
-import Next from '../../img/next.png';
+import Play from './img/play.png';
+import Pause from './img/pause.png';
+import Back from './img/back.png';
+import Next from './img/next.png';
 import { motion } from 'framer-motion';
 const CardCarousel = () => (
   <CarouselProvider

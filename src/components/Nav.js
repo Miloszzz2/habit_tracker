@@ -1,5 +1,5 @@
-import logo from '../img/logo.png';
-import Search from '../img/bx_search.png';
+import logo from './img/logo.png';
+import Search from './img/bx_search.png';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
