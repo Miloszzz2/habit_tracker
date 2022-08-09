@@ -1,15 +1,12 @@
 import logo from './img/logo.png';
 import Search from './img/bx_search.png';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 function Nav() {
   const [isActive, setActive] = useState(false);
 
-  const handleToggle = () => {
-    setActive(!isActive);
-  };
   const listAnimation = {
     hidden: { opacity: 0 },
     show: {
@@ -56,7 +53,9 @@ function Nav() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className='logo'
           >
-            <img src={logo} alt='logo' />
+            <Link to='/'>
+              <img src={logo} alt='logo' />
+            </Link>
           </motion.div>
           <div className='menu'>
             <motion.ul
@@ -67,6 +66,9 @@ function Nav() {
             >
               <motion.li variants={item}>
                 <Link to='/blog'>Blog</Link>
+              </motion.li>
+              <motion.li variants={item}>
+                <Link to='/demo'>Demo</Link>
               </motion.li>
               <motion.li variants={item}>
                 <Link to='/login'>Login</Link>
@@ -85,13 +87,16 @@ function Nav() {
                   src={Search}
                   alt='search'
                   className='search_img'
-                  onClick={handleToggle}
+                  onClick={() => {
+                    setActive(!isActive);
+                  }}
                 />
               </motion.li>
             </motion.ul>
           </div>
         </motion.div>
       </section>
+      <Outlet />
     </>
   );
 }

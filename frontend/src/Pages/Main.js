@@ -1,5 +1,5 @@
-import RightSection from './RightSection';
-import LeftSection from './LeftSection';
+import RightSection from '../components/RightSection';
+import LeftSection from '../components/LeftSection';
 function Main() {
   return (
     <>
