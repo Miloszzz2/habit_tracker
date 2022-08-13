@@ -1,9 +1,14 @@
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
+import EmojiPicker from '../components/EmojiPicker';
+import { useState } from 'react';
 function Demo() {
+  const [inputValue, setInputValue] = useState('');
   return (
     <>
-      <h1>Demo</h1>
-      <Link to='down'>Download</Link>
+      <section id='demo'>
+        <EmojiPicker inputValue={inputValue} setInputValue={setInputValue} />
+        <div className='habit_elements'></div>
+      </section>
     </>
   );
 }
