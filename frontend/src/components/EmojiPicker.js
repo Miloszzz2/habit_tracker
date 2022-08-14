@@ -2,7 +2,7 @@ import Picker from 'emoji-picker-react';
 import { useState, useRef } from 'react';
 import Emoji from './img/emoji.png';
 import Plus from './img/plus.png';
-function EmojiPicker({ inputValue, setInputValue }) {
+function EmojiPicker({ inputValue, setInputValue, addItem }) {
   const [showPicker, setShowPicker] = useState(false);
   const emojiInput = useRef(null);
   const onEmojiClick = (event, emojiObject) => {
@@ -19,7 +19,7 @@ function EmojiPicker({ inputValue, setInputValue }) {
         ref={emojiInput}
         placeholder='Write your habit here and click plus icon'
       />
-      <img src={Plus} alt='plus' className='plus_icon' />
+      <img src={Plus} alt='plus' className='plus_icon' onClick={addItem} />
       <img
         src={Emoji}
         alt='emoji picker'
