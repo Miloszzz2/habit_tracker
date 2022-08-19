@@ -1,6 +1,6 @@
 import HabitInput from '../components/HabitInput';
 import HabitElements from '../components/HabitElements';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,13 +9,42 @@ function Demo() {
   const [elements, setElements] = useState([]);
   const [text, setText] = useState(false);
   const [focused, setFocused] = useState(false);
+
+  const getDataFromBackend = () => {
+    setText(false);
+    fetch('http://localhost:8888/habits')
+      .then((res) => {
+        return res.json();
+      })
+      .then(({ habitList }) => {
+        setElements(habitList);
+        if (habitList.length !== 0) {
+          return setText(true);
+        }
+      });
+  };
+  useEffect(() => {
+    getDataFromBackend();
+  }, [setElements]);
+
+  const sendItemToBackEnd = (item) => {
+    fetch('http://127.0.0.1:8888/habits', {
+      method: 'POST',
+      body: JSON.stringify(item),
+      headers: {
+        'Content-type': 'application/json',
+      },
+    });
+  };
   const addItem = () => {
-    if (inputValue.length !== 0) {
+    if (inputValue.length !== 0 && inputValue.trim().length !== 0) {
       const item = {
         title: inputValue,
         id: uuidv4(),
       };
-      setElements([item, ...elements]);
+
+      setElements([...elements, item]);
+      sendItemToBackEnd(item);
       setText(true);
       setInputValue('');
     } else {

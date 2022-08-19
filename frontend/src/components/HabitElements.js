@@ -1,17 +1,20 @@
 import Delete from './img/delete.png';
 import { motion, AnimatePresence } from 'framer-motion';
 function HabitElements({ elements, text, setElements, setText }) {
-  const deleteItem = (findId, setVisible) => {
+  const deleteItem = (findId) => {
     const newElements = elements.filter((el) => el.id !== findId);
+    deleteItemFromBackend(findId);
     setElements(newElements);
-    setTimeout(() => {
-      setVisible();
-    }, 390);
-  };
-  const setTextVisible = () => {
-    if (elements.length === 1) {
-      setText(false);
+    if (elements.length == 1) {
+      setTimeout(() => {
+        setText(false);
+      }, 400);
     }
+  };
+  const deleteItemFromBackend = (query) => {
+    return fetch(`http://127.0.0.1:8888/habits/${query}`, {
+      method: 'DELETE',
+    });
   };
   return (
     <div className='habit_elements'>
@@ -25,7 +28,7 @@ function HabitElements({ elements, text, setElements, setText }) {
               className='habit_element'
               initial={{ x: -30, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              exit={{ x: -30, opacity: 0, background: 'rgb(252, 41, 41)' }}
+              exit={{ x: -30, opacity: 0, borderColor: 'rgb(121, 0, 0)' }}
               transition={{ duration: 0.4 }}
               key={el.id}
             >
@@ -80,7 +83,7 @@ function HabitElements({ elements, text, setElements, setText }) {
                 src={Delete}
                 alt='delete'
                 className='delete'
-                onClick={() => deleteItem(el.id, setTextVisible)}
+                onClick={() => deleteItem(el.id)}
               />
             </motion.div>
           );

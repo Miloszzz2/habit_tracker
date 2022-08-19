@@ -29,7 +29,7 @@ function HabitInput({
     return () => {
       document.removeEventListener('keydown', keyDownHandler);
     };
-  });
+  }, [addItem, focused]);
 
   return (
     <div className='demo_input'>
